@@ -1,5 +1,81 @@
 
+<form name="login" id="over">
+    <input type="text" name="username" id="username" placeholder="username" required="required" />
+    <input type="password" name="password" id="password" placeholder="password" required="required" />
+    <input type="submit" value="submit" name="submit" id="submit" />
+</form>
+<style>
+ body {
+    background-color: #FF851B;
+}
+#over {
+    display: none;
+    background-color: rgba(250, 250, 250, 0.90);
+    width: 100%;
+    height: 100%;
+    padding-top: 30%;
+    position: fixed;
+    top: -20px;
+    
+    & * {
+      display: block;
+      margin: 2.5px auto 2.5px auto;
+      text-align: center;
+    }
+    
+    & input {
+      border: 3px solid #989898;
+      border-radius: 7px;
+      padding: 7px 10px;
+      font-size: 14pt;
+      font-family: 'Lato', sans-serif;
+      
+      &:focus {
+        outline: 0;
+      }
+  }
+  & #submit {
+    display: none;
+  }
+}
+ <script>
+ var h = $(window).height(),
+    w = $(window).width(),
+    correctUsername = 'gymbry',
+    correctPassword = 'root',
+    illegalInputs = [
+      null,
+      '',
+      ' '
+    ],
+    loginWidth = $('#over #password').width(),
+    progressElement = '<progress id="progress" style="width' + loginWidth + '"></progress>';
 
+$('#over').height(h);
+
+$('#over').show("slide", { direction: "up" }, 750);
+
+$("#over").submit(function() {
+  if (($('#over #username').val() === correctUsername) && ($('#over #password').val() === correctPassword)) {
+    $('#over #password').after(progressElement);
+    setTimeout(function () {
+      $('#over #progress').remove();
+      $('#over').hide("slide", { direction: "up" }, 750);
+    }, 1000);
+  }
+  else {
+    $('#submit').after(progressElement);
+    setTimeout(function () {
+      $('#over #progress').remove();
+      $('#over #username, #over #password').effect('shake');
+      $('#over #username, #over #password').val(null);
+      $('#over #username').focus();
+    }, 1000);
+  }
+  return false;
+});
+ </script>
+</style>
 <style>
 <!-- CSS for 2019 batch seperator-->
 /*! CSS Used from: https://semantic-ui.com/dist/semantic.min.css */
