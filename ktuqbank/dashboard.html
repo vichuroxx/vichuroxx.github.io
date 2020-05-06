@@ -6,36 +6,35 @@
 <p>hi</p>
 <style>
 
+
 #over {
-    display: none;
-    background-color: rgba(250, 250, 250, 0.90);
-    width: 100%;
-    height: 100%;
-    padding-top: 30%;
-    position: fixed;
-    top: -20px;
-    
-    & * {
-      display: block;
-      margin: 2.5px auto 2.5px auto;
-      text-align: center;
-    }
-    
-    & input {
-      border: 3px solid #989898;
-      border-radius: 7px;
-      padding: 7px 10px;
-      font-size: 14pt;
-      font-family: 'Lato', sans-serif;
-      
-      &:focus {
-        outline: 0;
-      }
-  }
-  & #submit {
-    display: none;
-  }
-}</style>
+  display: none;
+  background-color: rgba(250, 250, 250, 0.9);
+  width: 100%;
+  height: 100%;
+  padding-top: 30%;
+  position: fixed;
+  top: -20px;
+}
+#over * {
+  display: block;
+  margin: 2.5px auto 2.5px auto;
+  text-align: center;
+}
+#over input {
+  border: 3px solid #989898;
+  border-radius: 7px;
+  padding: 7px 10px;
+  font-size: 14pt;
+  font-family: 'Lato', sans-serif;
+}
+#over input:focus {
+  outline: 0;
+}
+#over #submit {
+  display: none;
+}
+</style>
  <script>
  var h = $(window).height(),
     w = $(window).width(),
